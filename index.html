@@ -1,95 +1,64 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eden Gallery | Coming Soon</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,500&family=Inter:wght@300&display=swap" rel="stylesheet">
+    <title>Eden Gallery | Fine Art & Exhibitions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Preload core rolling images for performance -->
+    <link rel="preload" as="image" href="assets/images/main/hero1.jpg">
+    <link rel="preload" as="image" href="assets/images/main/hero2.jpg">
+    <link rel="preload" as="image" href="assets/images/main/hero3.jpg">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            background-color: #0a0a0a; /* Deep elegant black */
-            color: #f4f4f4;
             font-family: 'Inter', sans-serif;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
+            background-color: #050505;
+            color: #e5e5e5;
+            overflow-x: hidden;
         }
-
-        .content {
-            text-align: center;
-            opacity: 0;
-            animation: fadeIn 2.5s ease-in forwards;
-        }
-
-        h1 {
+        .font-serif {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            font-weight: 400;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            margin-bottom: 20px;
         }
-
-        .subtext {
-            font-size: 0.9rem;
-            letter-spacing: 0.4em;
-            text-transform: uppercase;
-            color: #888;
-            margin-bottom: 40px;
-            display: block;
+        .rolling-text {
+            animation: rotate 20s linear infinite;
         }
-
-        .divider {
-            width: 1px;
-            height: 60px;
-            background: linear-gradient(to bottom, #0a0a0a, #444, #0a0a0a);
-            margin: 0 auto 40px auto;
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
-
-        .footer-link {
-            font-size: 0.8rem;
-            color: #666;
-            text-decoration: none;
-            letter-spacing: 0.1em;
-            transition: color 0.4s ease;
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-
-        .footer-link:hover {
-            color: #fff;
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
         }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        ::-webkit-scrollbar-thumb {
+            background: #444;
+            border-radius: 4px;
         }
-
-        /* Subtle background glow */
-        .glow {
-            position: absolute;
-            width: 100vw;
-            height: 100vh;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
-            z-index: -1;
+        ::-webkit-scrollbar-thumb:hover {
+            background: #666;
         }
     </style>
+
+<link rel="stylesheet" href="/index.css">
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.35.0"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/assets/index-CgIUDaJf.js"></script>
 </head>
 <body>
-    <div class="glow"></div>
-    
-    <div class="content">
-        <span class="subtext">Fine Art & Curation</span>
-        <h1>Eden Gallery</h1>
-        <div class="divider"></div>
-        <p style="margin-bottom: 20px; font-style: italic; color: #ccc;">Coming Soon to Sydney</p>
-        <a href="mailto:info@edengallery.com.au" class="footer-link">ENQUIRIES</a>
-    </div>
+    <div id="root"></div>
 </body>
 </html>
